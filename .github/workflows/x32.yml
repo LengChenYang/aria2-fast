@@ -1,0 +1,25 @@
+name: Aria2_x32
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: build arai2c.exe
+      env:
+        VERSION: 1.37.0
+      run: |
+        curl -L -o Dockerfile.mingw "https://raw.githubusercontent.com/LengChenYang/aria2/release-$VERSION/Dockerfile.mingw"
+        bash x32/patch_dockerfile.sh
+        sudo docker build --build-arg HOST=x86_64-w64-mingw32 --build-arg ARIA2_VERSION=release-$VERSION --build-arg ARIA2_REF=refs/tags/release-$VERSION -t aria2-mingw - < Dockerfile.mingw
+        id=$(sudo docker create aria2-mingw)
+        sudo docker cp $id:/aria2/src/aria2c.exe ./aria2c_x32.exe
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: aria2c-X32
+        path: /home/runner/work/aria2-fast/aria2-fast/aria2c_x32.exe
