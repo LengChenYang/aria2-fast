@@ -1,6 +1,15 @@
---- a/src/OptionHandlerFactory.cc
-+++ b/src/OptionHandlerFactory.cc
-@@ -419,7 +419,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+--- "a/./src/OptionHandlerFactory.cc"
++++ "b/./src/OptionHandlerFactory.cc"
+@@ -432,7 +432,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+   {
+     OptionHandler* op(new NumberOptionHandler(PREF_MAX_CONCURRENT_DOWNLOADS,
+                                               TEXT_MAX_CONCURRENT_DOWNLOADS,
+-                                              "5", 1, -1, 'j'));
++                                              "16", 1, -1, 'j'));
+     op->addTag(TAG_BASIC);
+     op->setChangeGlobalOption(true);
+     handlers.push_back(op);
+@@ -440,7 +440,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    {
      OptionHandler* op(new NumberOptionHandler(PREF_MAX_CONNECTION_PER_SERVER,
                                                TEXT_MAX_CONNECTION_PER_SERVER,
@@ -9,7 +18,7 @@
      op->addTag(TAG_BASIC);
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
-@@ -480,7 +480,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -501,7 +501,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    }
    {
      OptionHandler* op(new UnitNumberOptionHandler(
@@ -18,7 +27,7 @@
      op->addTag(TAG_BASIC);
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
-@@ -791,7 +791,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -834,7 +834,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    }
    {
      OptionHandler* op(new NumberOptionHandler(
@@ -27,7 +36,7 @@
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
      op->setInitialOption(true);
-@@ -862,7 +862,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -905,7 +905,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    }
    {
      OptionHandler* op(new UnitNumberOptionHandler(
@@ -36,7 +45,7 @@
      op->addTag(TAG_ADVANCED);
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
-@@ -883,7 +883,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -926,7 +926,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    }
    {
      OptionHandler* op(
@@ -45,7 +54,7 @@
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
      op->setInitialOption(true);
-@@ -928,7 +928,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -971,7 +971,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    }
    {
      OptionHandler* op(
