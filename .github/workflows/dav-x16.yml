@@ -1,4 +1,4 @@
-name: build-Aria2-dav-X16
+name: dav-Aria2_x16
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ jobs:
         VERSION: 1.37.0
       run: |
         curl -L -o Dockerfile.mingw "https://raw.githubusercontent.com/LengChenYang/aria2/release-$VERSION/Dockerfile.mingw"
-        bash x16/patch_dockerfile.sh
+        bash ./patch_dockerfile.sh
         sudo docker build --build-arg HOST=x86_64-w64-mingw32 --build-arg ARIA2_VERSION=release-$VERSION --build-arg ARIA2_REF=refs/tags/release-$VERSION -t aria2-mingw - < Dockerfile.mingw
         id=$(sudo docker create aria2-mingw)
         sudo docker cp $id:/aria2/src/aria2c.exe ./dav-aria2c_x16.exe
