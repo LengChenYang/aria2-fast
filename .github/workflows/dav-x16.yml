@@ -1,6 +1,6 @@
 name: dav-Aria2_x16
 
-#on:
+on:
   workflow_dispatch:
   push:  
     branches:  
